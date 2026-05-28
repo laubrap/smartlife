@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Commerce{
+    -id: long
+    -products: List<Product>
+    -sales: list<Sale>
+}
+
+class Product {
+    - id: long
+    - name: String
+    - desc: String
+    - basePrice: double
+    -productType: ProductType
+
+    +finalPrice(double basePrice): double
+    -totalTaxes(): double
+}
+
+class ProductType{
+    - taxes : List<Tax>
+    - name: String
+}
+
+interface Tax{
+    +calculateTax(Product product)
+}
+
+class IVA implements Tax{
+    +calculateTax(Product product)
+}
+
+class EO implements Tax{
+    +calculateTax(Product product)
+}
+
+class EI implements Tax{
+    +calculateTax(Product product)
+}
+
+class SaleItem{
+    product: Product
+    amount: int
+}
+
+class Sale{
+    -id: long
+    -date: LocalDate
+    -products: List<SaleItem>
+    +totalPrice(): double
+    +totalTax(): double
+}
+
+Commerce ->"*" Product
+Product *--- ProductType
+ProductType --->"*" Tax
+Tax "knows"..> Product
+Sale -> SaleItem
+Commerce ->"*" Sale
+
+
+@enduml
