@@ -1,9 +1,11 @@
-package ar.edu.utn.ba.ddsi.sales_service.entities;
+package ar.edu.utn.ba.ddsi.sales_service.entities.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class Product {
     private long id;
@@ -13,10 +15,10 @@ public class Product {
     private ProductType productType;
 
     public double finalPrice(){
-        return basePrice - this.getTaxes();
+        return this.basePrice - this.getTaxes();
     }
 
     public double getTaxes(){
-        return productType.getTaxesPrice(this);
+        return this.productType.getTaxesPrice(this);
     }
 }
