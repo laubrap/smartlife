@@ -1,8 +1,10 @@
-package ar.edu.utn.ba.ddsi.sales_service.entities;
+package ar.edu.utn.ba.ddsi.sales_service.entities.sale;
 
 import ar.edu.utn.ba.ddsi.sales_service.entities.product.Product;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 @Getter
 public class SaleItem {
     private Product product;

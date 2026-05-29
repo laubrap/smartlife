@@ -1,17 +1,23 @@
 package ar.edu.utn.ba.ddsi.sales_service.entities.product;
 
-import ar.edu.utn.ba.ddsi.sales_service.entities.Tax;
+import ar.edu.utn.ba.ddsi.sales_service.entities.tax.Tax;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @Getter
-@AllArgsConstructor
 public class ProductType {
-    private String name;
-    private List<Tax> taxes;
+    final private String name;
+    final private List<Tax> taxes;
+
+    public ProductType(String name, List<Tax> taxes) {
+        this.name = name;
+        this.taxes = new ArrayList<>(taxes);
+    }
+
 
     public double getTaxesPrice(Product product){
         return taxes.stream().mapToDouble(t -> t.calculateTax(product))
