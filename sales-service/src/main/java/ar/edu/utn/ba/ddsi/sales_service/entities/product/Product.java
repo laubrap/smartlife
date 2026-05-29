@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 public class Product {
-    private long id;
+    private final long id;
     private String name;
     private String description;
     private double basePrice;

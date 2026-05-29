@@ -15,11 +15,10 @@ public class Commerce {
     private final List<Sale> sales;
     private final List<Product> products;
 
-
-    public Commerce(long id, List<Sale> sales, List<Product> products) {
+    public Commerce(long id) {
         this.id = id;
-        this.sales = new ArrayList<>(sales);
-        this.products = new ArrayList<>(products);
+        this.sales = new ArrayList<>();
+        this.products = new ArrayList<>();
     }
 
     public void addProducts(Product... newProducts){

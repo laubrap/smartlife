@@ -1,7 +1,6 @@
 package ar.edu.utn.ba.ddsi.sales_service.entities.product;
 
 import ar.edu.utn.ba.ddsi.sales_service.entities.tax.Tax;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -10,12 +9,12 @@ import java.util.List;
 
 @Getter
 public class ProductType {
-    final private String name;
-    final private List<Tax> taxes;
+    private final String name;
+    private final List<Tax> taxes;
 
-    public ProductType(String name, List<Tax> taxes) {
+    public ProductType(String name) {
         this.name = name;
-        this.taxes = new ArrayList<>(taxes);
+        this.taxes = new ArrayList<>();
     }
 
 

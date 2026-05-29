@@ -9,14 +9,14 @@ import java.util.List;
 
 @Getter
 public class Sale {
-    private long id;
+    private final long id;
     private LocalDate date;
     private List<SaleItem> items;
 
-    public Sale(long id, LocalDate date, List<SaleItem> items) {
+    public Sale(long id) {
         this.id = id;
         this.date = LocalDate.now();
-        this.items = new ArrayList<>(items);
+        this.items = new ArrayList<>();
     }
 
 
